@@ -6,7 +6,7 @@
 
 OpenAdv包含 GAE(广告投放引擎)、GAE-DAS(Binlog监听)、log-collector(日志收集)、gae-report(报表计算任务)四个子系统，它们之间的业务流程如下：
 
-![arc](http://ovbyjzegm.bkt.clouddn.com/all-arc2.jpg)
+![arc](http://ovbyjzegm.bkt.clouddn.com/all-arc3.jpg)
 
 GAE-DAS通过监听业务系统mysql binlog实时生成增量索引;
 
@@ -20,9 +20,9 @@ gae-report每小时运行一次分析日志文件，产出报表;
 
 业务系统定时将报表产出拉取入库;
 
+  
 
-
-未来会引入spark-stream实时分析检索日志提供反作弊功能
+未来会引入spark-stream实时分析检索日志提供反作弊功能; 计费服务完成检索日志与曝光日志的实时JOIN进行计费，通过操作Mysql相关表完成广告下线。
 
 
 
