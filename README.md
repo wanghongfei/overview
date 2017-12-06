@@ -4,7 +4,7 @@
 
 ## 图解
 
-OpenAdv包含 GAE(广告投放引擎)、GAE-DAS(Binlog监听)、log-collector(日志收集)、gae-report(报表计算任务)四个子系统，它们之间的业务流程如下：
+OpenAdv包含 GAE(广告投放引擎)、GAE-DAS(Binlog监听)、gae-log-streaming(spark-streaming实时日志分析)和业务端四个子系统，它们之间的业务流程如下：
 
 ![arc](http://ovbyjzegm.bkt.clouddn.com/all-arc4.jpg)
 
