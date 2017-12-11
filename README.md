@@ -6,7 +6,7 @@
 
 OpenAdv包含 GAE(广告投放引擎)、GAE-DAS(Binlog监听)、gae-log-streaming(spark-streaming实时日志分析)和业务端四个子系统，它们之间的业务流程如下：
 
-![arc](http://ovbyjzegm.bkt.clouddn.com/all-arc4.jpg)
+![arc](http://ovbyjzegm.bkt.clouddn.com/all-arc5.jpg)
 
 - GAE-DAS
 
@@ -18,7 +18,11 @@ OpenAdv包含 GAE(广告投放引擎)、GAE-DAS(Binlog监听)、gae-log-streamin
 
 - gae-log-streaming
 
-使用Spark Streaming实时分析日志。将检索日志与曝光日志通过`sid`字段执行`JOIN`操作，使用`JOIN`结果进行扣费，并实时下线广告。同时每小时产出一套报表数据，按维度(推广单元、推广计划、创意、地域、标签、广告位)产出7个文本文件，业务系统定时将报表入库以供用户查询
+使用Spark Streaming实时分析日志。将检索日志与曝光日志通过`sid`字段执行`JOIN`操作，使用`JOIN`结果进行扣费，并投递扣费消息到kafka中。
+
+- 扣费服务
+
+从kafka中接收扣费消息，操作redis进行扣费, 余额不足时操作mysql下线广告。同时每小时产出一套报表数据，按维度(推广单元、推广计划、创意、地域、标签、广告位)产出7个文本文件，业务系统定时将报表入库以供用户查询
 
 
 
