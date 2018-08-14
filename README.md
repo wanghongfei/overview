@@ -26,6 +26,24 @@ OpenAdv包含 GAE(广告投放引擎)、GAE-DAS(Binlog监听)、gae-log-streamin
 
 
 
+对于检索日志与曝光日志的Join部分，使用Spark Streaming可能较重，部署比较复杂; 还有另一种不需要使用大数据处理系统的方案，如下图：
+
+![gae-overview-no-spark](http://ovbyjzegm.bkt.clouddn.com/all-arc-no-spark.jpg)
+
+我们分别使用检索日志Cache和Join两个服务代替Spark:
+
+- cache
+
+监听检索日志topic, 将日志发送至Redis并设置过期时间
+
+- Join
+
+监听曝光日志topic, 从Redis中查询是否有对应的检索, 如果match上则向Kafka投放扣费消息
+
+以上两个服务可以使用轻量级的语言编写，如Go, Python，通过Kafka Partition实现横向扩展。
+
+
+
 ## 部署
 
 每个子系统会提供Docker一键部署方式，并配详细文档。
