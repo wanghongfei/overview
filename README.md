@@ -12,7 +12,7 @@ OpenAdv包含GAE(投放引擎)、GAE-DAS(增量索引生成)、gae-log-cache(检
 
 ### 在无条件运维Spark的情况下(推荐)
 
-对于检索日志与曝光日志的Join部分我们使用kafka + redis的方式代替Spark Streaming完成实时的检索日志与曝光日志的拼接, 实现起来相对于Spark更简单且不需要会出运维Spark集群的代价：
+对于检索日志与曝光日志的Join部分我们使用kafka + redis的方式代替Spark Streaming完成实时的检索日志与曝光日志的拼接, 实现起来相对于Spark更简单且不需要付出运维Spark集群的代价：
 
 ![gae-overview-no-spark](http://ovbyjzegm.bkt.clouddn.com/all-arc-no-spark.jpg)
 
