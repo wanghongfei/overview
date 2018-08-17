@@ -8,7 +8,9 @@ OpenAdv是开源广告系统总称，其愿景为帮助小型企业在没有专�
 
 OpenAdv包含GAE(投放引擎)、GAE-DAS(增量索引生成)、gae-log-cache(检索日志缓存)、gae-log-join(检索日志、曝光/点击日志拼接)、gae-log-charge(扣费) 五个子系统构成，组合到一起就可以支持以CPM或CPC进行计费的广告投放。这些系统之间的关系如下:
 
-###在无条件运维Spark的情况下(推荐)
+
+
+### 在无条件运维Spark的情况下(推荐)
 
 对于检索日志与曝光日志的Join部分我们使用kafka + redis的方式代替Spark Streaming完成实时的检索日志与曝光日志的拼接, 实现起来相对于Spark更简单且不需要会出运维Spark集群的代价：
 
